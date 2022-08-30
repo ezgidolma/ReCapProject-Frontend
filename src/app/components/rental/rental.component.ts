@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Rental } from 'src/app/models/rental';
 
 @Component({
   selector: 'app-rental',
@@ -7,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RentalComponent implements OnInit {
 
+  rental:Rental[]=[];
   constructor() { }
 
   ngOnInit(): void {
