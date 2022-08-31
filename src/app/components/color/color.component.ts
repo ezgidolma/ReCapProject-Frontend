@@ -10,11 +10,20 @@ import { ColorResponseModel } from 'src/app/models/Color/colorResponseModel';
 })
 export class ColorComponent implements OnInit {
 
-  color:Color[]=[];
+  colors:Color[]=[];
   apiUrl = 'https://localhost:7266/api/colors/getall';
   constructor(private httpclient:HttpClient) { }
 
   ngOnInit(): void {
+   this.getColor();
+  }
+
+  getColor(){
+    this.httpclient
+    .get<ColorResponseModel>(this.apiUrl)
+    .subscribe((response) => {
+    this.colors= response.data
+      } );
   }
 
   

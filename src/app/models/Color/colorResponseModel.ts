@@ -1,4 +1,6 @@
-export interface ColorResponseModel{
-    success:boolean,
-    message:string
+import { ResponseModel } from "../responseModel";
+import { Color } from "./color";
+
+export interface ColorResponseModel extends ResponseModel{
+    data:Color[];
 }

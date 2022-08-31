@@ -1,5 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Customer } from 'src/app/models/Customer/customer';
+import { CustomerResponseModel } from 'src/app/models/Customer/customerResponseModel';
 
 @Component({
   selector: 'app-customer',
@@ -8,10 +10,20 @@ import { Customer } from 'src/app/models/Customer/customer';
 })
 export class CustomerComponent implements OnInit {
 
-  customer:Customer[]=[];
-  constructor() { }
+  customers:Customer[]=[];
+  apiUrl="https://localhost:7266/api/customers/getall";
+  constructor(private httpclient:HttpClient) { }
 
   ngOnInit(): void {
+    this.getCustomer();
+  }
+
+  getCustomer(){
+    this.httpclient
+    .get<CustomerResponseModel>(this.apiUrl)
+    .subscribe((response) => {
+    this.customers= response.data
+      } );
   }
 
 }
