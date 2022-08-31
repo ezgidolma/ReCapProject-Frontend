@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Rental } from 'src/app/models/Rental/rental';
 import { RentalResponseModel } from 'src/app/models/Rental/rentalResponseModel';
+import { RentalService } from 'src/app/services/rentalservice/rental.service';
 
 @Component({
   selector: 'app-rental',
@@ -11,17 +12,16 @@ import { RentalResponseModel } from 'src/app/models/Rental/rentalResponseModel';
 export class RentalComponent implements OnInit {
 
   rentals:Rental[]=[];
-  apiUrl="https://localhost:7266/api/rentals/getall";
-  constructor(private httpclient:HttpClient) { }
+  dataLoaded=false;
+  constructor(private rentalService:RentalService) { }
 
   ngOnInit(): void {
     this.getRental();
   }
   getRental(){
-    this.httpclient
-  .get<RentalResponseModel>(this.apiUrl)
-  .subscribe((response) => {
-  this.rentals=response.data
-  });
+    this.rentalService.getRentals().subscribe(response =>{
+      this.rentals=response.data
+      this.dataLoaded=true;
+    })
   }
 }

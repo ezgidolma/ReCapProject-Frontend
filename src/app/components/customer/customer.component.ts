@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Customer } from 'src/app/models/Customer/customer';
 import { CustomerResponseModel } from 'src/app/models/Customer/customerResponseModel';
+import { CustomerService } from 'src/app/services/customerservice/customer.service';
 
 @Component({
   selector: 'app-customer',
@@ -11,19 +12,18 @@ import { CustomerResponseModel } from 'src/app/models/Customer/customerResponseM
 export class CustomerComponent implements OnInit {
 
   customers:Customer[]=[];
-  apiUrl="https://localhost:7266/api/customers/getall";
-  constructor(private httpclient:HttpClient) { }
+  dataLoaded=false;
+  constructor(private customerService:CustomerService) { }
 
   ngOnInit(): void {
     this.getCustomer();
   }
 
   getCustomer(){
-    this.httpclient
-    .get<CustomerResponseModel>(this.apiUrl)
-    .subscribe((response) => {
-    this.customers= response.data
-      } );
+    this.customerService.getCustomers().subscribe(response =>{
+      this.customers=response.data
+      this.dataLoaded=true;
+    })
   }
 
 }
