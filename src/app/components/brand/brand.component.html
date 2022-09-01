@@ -5,12 +5,10 @@
 <table *ngIf="dataLoaded!=false" class="table">
   <thead>
     <tr>
-       <th>BrandId</th>
-       <th>BrandName</th>
+       <th>Markalar</th>
     </tr>
  </thead>
   <tr *ngFor = "let brand of brands">
-      <td>{{brand.id}}</td>
       <td>{{brand.name}}</td>
   </tr>
 </table>

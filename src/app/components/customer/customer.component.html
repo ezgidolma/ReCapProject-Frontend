@@ -5,12 +5,16 @@
 <table *ngIf="dataLoaded!=false" class="table">
     <thead>
         <tr>
-           <th>UserId</th>
+           <th>CustomerId</th>
+           <th>FirstName</th>
+           <th>LastName</th>
            <th>CompanyName</th>
         </tr>
      </thead>
     <tr *ngFor = "let customer of customers">
-        <td>{{customer.userId}}</td>
+        <td>{{customer.customerId}}</td>
+        <td>{{customer.firstName}}</td>
+        <td>{{customer.lastName}}</td>
         <td>{{customer.companyName}}</td>
     </tr>
   </table>
