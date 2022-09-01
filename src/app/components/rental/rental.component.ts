@@ -13,7 +13,7 @@ export class RentalComponent implements OnInit {
 
   rentals:Rental[]=[];
   dataLoaded=false;
-  constructor(private rentalService:RentalService) { }
+  constructor(private  rentalService:RentalService) { }
 
   ngOnInit(): void {
     this.getRental();
