@@ -2,13 +2,8 @@
     <span class="visually-hidden">Loading...</span>
   </div>
   
-<table *ngIf="dataLoaded!=false" class="table">
-    <thead>
-        <tr>
-           <th>Renkler</th>
-        </tr>
-     </thead>
-    <tr *ngFor = "let color of colors">
-        <td>{{color.name}}</td>
-    </tr>
-  </table>
+  <ul class="list-group">
+    <li *ngFor="let color of colors" 
+    class="list-group-item">{{color.name}}</li>
+
+  </ul>

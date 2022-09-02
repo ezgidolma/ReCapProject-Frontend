@@ -2,13 +2,8 @@
   <span class="visually-hidden">Loading...</span>
 </div>
 
-<table *ngIf="dataLoaded!=false" class="table">
-  <thead>
-    <tr>
-       <th>Markalar</th>
-    </tr>
- </thead>
-  <tr *ngFor = "let brand of brands">
-      <td>{{brand.name}}</td>
-  </tr>
-</table>
+<ul class="list-group">
+  <li *ngFor="let brand of brands" 
+  class="list-group-item">{{brand.name}}</li>
+
+</ul>
