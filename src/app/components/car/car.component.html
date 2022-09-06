@@ -2,22 +2,33 @@
    <span class="visually-hidden">Loading...</span>
  </div>
 
-<table *ngIf="dataLoaded!=false" class="table">
-   <thead>
-      <tr>
-         <th>Id</th>
-         <th>CarName</th>
-         <th>ColorName</th>
-         <th>BrandName</th>
-         <th>DailyPrice</th>
-      </tr>
-   </thead>
-   <tr *ngFor="let car of cars">
-    <td>{{car.carId}}</td>
-    <td>{{car.carName}}</td>
-    <td>{{car.colorName}}</td>
-    <td>{{car.brandName}}</td>
-    <td>{{car.dailyPrice}}</td>
-    <td><button type="button" class="btn btn-primary active" routerLink="/carImage/{{car.carId}}">Detaya Git</button></td>
-   </tr>
-</table>
+ <br>
+ <table class="table">
+     <thead class="table">
+         <tr>
+             <th class="text-center" colspan="7"><h4>ARABALAR</h4></th>
+         </tr>
+     </thead>
+     
+     <thead class="table-dark">
+       <tr class="text-center">
+         <th><i class="fa-solid fa-car"></i></th>
+         <th scope="col">MARKA</th>
+         <th scope="col">MODEL</th>
+         <th scope="col">RENK</th>
+         <th scope="col">GÜNLÜK FİYAT</th>
+         <th scope="col">DETAY</th>
+       </tr>
+     </thead>
+     <tbody>
+       <tr class ="text-center " *ngFor = "let car of cars">
+         <td><i class="fa-solid fa-car"></i></td>
+         <td>{{car.brandName}}</td>
+         <td>{{car.carName}}</td>
+         <td>{{car.colorName}}</td>
+         <td>{{car.dailyPrice}} ₺</td>
+         <td><button class="btn btn-outline-danger">Detayı Gör</button></td>
+       </tr>
+   
+     </tbody>
+ </table>
