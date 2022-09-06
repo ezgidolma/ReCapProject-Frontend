@@ -1,19 +1,9 @@
-<table class="table">
-   <thead>
-     <tr>
-       <th>Brand Name</th>
-       <th>Daily Price</th>
-       <th>Description</th>
-     </tr>
-   </thead>
-   <tr *ngFor="let car of cars">
-     <td>{{car.brandName}}</td>
-     <td>{{car.dailyPrice}}€</td>
-     <td>{{car.carName}}</td>
-     <br>
-       <button (click)="setButtonDetail(currentCar)"
-       routerLink="/cars/car/{{car.carId}}"
-       [class]="getCurrentButtonClass(car)"
-       type="button" class="btn btn-primary">View</button>
-   </tr>
- </table>
+<ul class="list-group">
+  <li (click)="resetCurrentCar()" 
+  routerLink = ""
+  [class]="getAllCarClass()" >All Cars</li>
+  <li (click)="setCurrentCar(car)" 
+  routerLink= "/cars/images/{{car.carId}}"
+  *ngFor="let car of cars" 
+  [class]="getCurrentCarClass(car)">{{car.carId}}</li>
+</ul>
