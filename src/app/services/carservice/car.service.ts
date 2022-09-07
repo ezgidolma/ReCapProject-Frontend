@@ -1,32 +1,36 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { Car } from 'src/app/models/Car/car';
-import { CarDetail } from 'src/app/models/carDetail';
+import { HttpClient } from '@angular/common/http';
+import { Observable, retry } from 'rxjs';
 import { ListResponseModel } from 'src/app/models/listResponseModel';
-
+import { CarImage } from 'src/app/models/carimages';
+import { Car } from 'src/app/models/Car/car';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CarService {
-  apiUrl="https://localhost:7266/api/";
-  constructor(private httpClient : HttpClient) { }
+  apiUrl = "https://localhost:7266/api/";
+  constructor(private httpClient: HttpClient) { }
 
-  getCars() : Observable<ListResponseModel<Car>>{
-    let newPath=this.apiUrl+"cars/getall"
+  getCarDetails():Observable<ListResponseModel<Car>>{
+    let newPath = this.apiUrl + "cars/getcardetails"
     return this.httpClient.get<ListResponseModel<Car>>(newPath);
   }
-  getCarDetails():Observable<ListResponseModel<CarDetail>>{
-    let newPath=this.apiUrl+"getcardetails"
-    return this.httpClient.get<ListResponseModel<CarDetail>>(newPath);    
+
+  getCarsByBrand(brandId:number):Observable<ListResponseModel<Car>>{
+    let newPath = this.apiUrl + "cars/getallbybrandid?id=" + brandId
+    return this.httpClient.get<ListResponseModel<Car>>(newPath);
   }
-  getCarDetailsByBrand(brandId:number):Observable<ListResponseModel<CarDetail>>{
-    let newPath=this.apiUrl+"getcardetailsbybrandid?id="+brandId
-    return this.httpClient.get<ListResponseModel<CarDetail>>(newPath);    
+
+  getCarsByColor(colorId:number):Observable<ListResponseModel<Car>>{
+    let newPath = this.apiUrl + "cars/getallbycolorid?id=" + colorId
+    return this.httpClient.get<ListResponseModel<Car>>(newPath);
   }
-  getCarDetailsByColor(colorId:number):Observable<ListResponseModel<CarDetail>>{
-    let newPath=this.apiUrl+"getcardetailsbycolorid?id="+colorId
-    return this.httpClient.get<ListResponseModel<CarDetail>>(newPath);    
+
+  getCarById(carId:number):Observable<ListResponseModel<Car>>{
+    let newPath = this.apiUrl + "cars/getcardetails?id=" + carId
+    return this.httpClient.get<ListResponseModel<Car>>(newPath);
   }
+
+  
 }
