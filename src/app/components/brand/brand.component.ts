@@ -1,6 +1,4 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { Brand } from 'src/app/models/Brand/brand';
 
 import { BrandService } from 'src/app/services/brandservice/brand.service';
@@ -24,7 +22,7 @@ export class BrandComponent implements OnInit {
   getBrands(){
     this.brandService.getBrands().subscribe(response=>{
       return this.brands=response.data;
-      this.dataLoaded = true;
+      
     })
   }
 
