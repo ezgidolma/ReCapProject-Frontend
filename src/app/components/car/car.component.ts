@@ -52,5 +52,8 @@ export class CarComponent implements OnInit {
     this.carService.getCarsByColor(colorId).subscribe(response=>{
       this.cars=response.data
     })
+
   }
+
+  
 }
