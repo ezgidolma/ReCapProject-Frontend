@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CarImage } from 'src/app/models/carimages';
 import { CarImageService } from 'src/app/services/carimage.service';
+import { CarService } from 'src/app/services/carservice/car.service';
 
 @Component({
   selector: 'app-car-image',
@@ -10,10 +11,14 @@ import { CarImageService } from 'src/app/services/carimage.service';
 })
 export class CarImageComponent implements OnInit {
 
-  carImages? : CarImage[] ;
-  carImagesSources? : string[] | null;
+  carImages : CarImage[] ;
+  currentImage: CarImage;
+  imageUrl = "https://localhost:7266"
 
-  constructor(private carImageService:CarImageService, private activatedroute:ActivatedRoute) { }
+  constructor(private carImageService:CarImageService,
+     private activatedroute:ActivatedRoute,
+     private carService:CarService,
+     ) { }
 
   ngOnInit(): void {
     this.activatedroute.params.subscribe(params=>{
