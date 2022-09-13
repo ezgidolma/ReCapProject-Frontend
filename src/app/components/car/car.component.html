@@ -1,19 +1,14 @@
-<table  class="table">
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>Araba </th>
-            <th>Marka</th>
-             <th>Renk</th>
-            <th>Günlük Fiyat</th>
-        </tr>
-    </thead>
-    <tr *ngFor="let cardetail of cardetails">
-        <td>{{cardetail.carId}}</td>
-        <td>{{cardetail.carName}}</td>
-        <td>{{cardetail.brandName}}</td>
-        <td>{{cardetail.colorName}}</td>
-        <td>{{cardetail.dailyPrice}}</td>
-    </tr>
-</table>
-
+<br/>
+<div class="card" style="width: 18rem; float:left; margin-right: 10px;" *ngFor="let carDetail of carDetails">
+  <img *ngIf="carDetail.imagePath" src="{{carDetail.imagePath}}" class="card-img-top carimg" alt="...">
+  <img *ngIf="!carDetail.imagePath" src="assets/default_image.png" class="card-img-top carimg" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{carDetail.carName}}</h5>
+    <p class="card-text">
+      <b>Model Yılı : </b>{{carDetail.modelYear}}<br/>
+      <b>Renk : </b> {{carDetail.colorName}}<br/>
+      <b>Günlük Ücret : </b> {{carDetail.dailyPrice}}
+    </p>
+    <a href="#" class="btn btn-outline-danger">Detaylar</a>
+  </div>
+</div>
