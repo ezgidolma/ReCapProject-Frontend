@@ -13,6 +13,7 @@ import { CustomerComponent } from './components/customer/customer.component';
 import { NaviComponent } from './components/navi/navi.component';
 import { RentalComponent } from './components/rental/rental.component';
 import { FormsModule } from '@angular/forms';
+import { VatAddedPipe } from './pipes/vat-added.pipe';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { FormsModule } from '@angular/forms';
     CustomerComponent,
     NaviComponent,
     RentalComponent,
+    VatAddedPipe,
     
   ],
   imports: [
