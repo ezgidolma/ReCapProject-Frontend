@@ -13,9 +13,8 @@ import { CustomerComponent } from './components/customer/customer.component';
 import { NaviComponent } from './components/navi/navi.component';
 import { RentalComponent } from './components/rental/rental.component';
 import { FormsModule } from '@angular/forms';
-import { BrandFilterPipe } from './pipes/brand-filter.pipe';
-import { CarFilterPipe } from './pipes/car-filter.pipe';
 import { ColorFilterPipe } from './pipes/color-filter.pipe';
+import { BrandFilterPipe } from './pipes/brand-filter.pipe';
 
 
 @NgModule({
@@ -27,10 +26,9 @@ import { ColorFilterPipe } from './pipes/color-filter.pipe';
     CustomerComponent,
     NaviComponent,
     RentalComponent,
+    ColorFilterPipe,
     BrandFilterPipe,
-    CarFilterPipe,
-    ColorFilterPipe
-    
+   
   ],
   imports: [
     BrowserModule,

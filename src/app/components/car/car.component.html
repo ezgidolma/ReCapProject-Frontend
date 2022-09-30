@@ -1,11 +1,12 @@
-<br/>
+
 <div class="content">
   <form class="d-flex md-auto">
     <input style="width: 91%;" class="form-control me-2"id="filterCar"  type="text" placeholder="model giriniz"
-      aria-label="Search All" [(ngModel)]="carDetails" [ngModelOptions]="{ standalone: true }" />
+      aria-label="Search All" [(ngModel)]="filterCar" [ngModelOptions]="{ standalone: true }" />
   </form>
 </div>
 
+<br>
 
 <div class="card" style="width: 18rem; float:left; margin-right: 10px;" *ngFor="let carDetail of carDetails">
   <img *ngIf="carDetail.imagePath" src="{{carDetail.imagePath}}" class="card-img-top carimg" alt="...">
