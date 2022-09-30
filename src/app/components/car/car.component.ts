@@ -10,15 +10,12 @@ import { CarService } from 'src/app/services/carservice/car.service';
   styleUrls: ['./car.component.css']
 })
 export class CarComponent implements OnInit {
-getSelectedBrand(arg0: any) {
-throw new Error('Method not implemented.');
-}
-
   cars : Car[] = [];
   carDetails: CarDetailDto[] = [];
-  filterText:"";
-brandFilter: any;
-brands: any;
+  filterCar:"";
+  brandFilter: any;
+  brands: any;
+  filterColor:number=0;
 
   constructor(private carService:CarService,private activatedRoute:ActivatedRoute) { }
 
@@ -59,6 +56,15 @@ brands: any;
       this.carDetails=response.data
     })
 
+  }
+
+  getSelectedBrand(brandId: number){
+    if(this.brandFilter==brandId) return true;
+    else return false; 
+  }
+  getSelectedColor(colorId: number){
+    if(this.filterColor==colorId) return true;
+    else return false; 
   }
 
   
