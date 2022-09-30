@@ -10,9 +10,15 @@ import { CarService } from 'src/app/services/carservice/car.service';
   styleUrls: ['./car.component.css']
 })
 export class CarComponent implements OnInit {
+getSelectedBrand(arg0: any) {
+throw new Error('Method not implemented.');
+}
 
   cars : Car[] = [];
   carDetails: CarDetailDto[] = [];
+  filterText:"";
+brandFilter: any;
+brands: any;
 
   constructor(private carService:CarService,private activatedRoute:ActivatedRoute) { }
 

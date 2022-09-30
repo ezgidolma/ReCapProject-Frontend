@@ -1,4 +1,12 @@
 <br/>
+<div class="content">
+  <form class="d-flex md-auto">
+    <input style="width: 91%;" class="form-control me-2"id="filterCar"  type="text" placeholder="model giriniz"
+      aria-label="Search All" [(ngModel)]="carDetails" [ngModelOptions]="{ standalone: true }" />
+  </form>
+</div>
+
+
 <div class="card" style="width: 18rem; float:left; margin-right: 10px;" *ngFor="let carDetail of carDetails">
   <img *ngIf="carDetail.imagePath" src="{{carDetail.imagePath}}" class="card-img-top carimg" alt="...">
   <img *ngIf="!carDetail.imagePath" src="assets/default_image.png" class="card-img-top carimg" alt="...">
@@ -6,9 +14,8 @@
     <h5 class="card-title">{{carDetail.carName |uppercase }}</h5>
     <p class="card-text">
       <b>Model Yılı : </b>{{carDetail.modelYear}}<br/>
-      <b>Renk : </b> {{carDetail.colorName}}<br/>
+      <b>Renk : </b> {{carDetail.colorName }}<br/>
       <b>Günlük Ücret : </b> {{carDetail.dailyPrice | currency}}<br/>
-      <b>KDV'li Ücret : </b> {{carDetail.dailyPrice | vatAdded:18 | currency}}<br/>
     </p>
     <a href="#" class="btn btn-outline-danger">Detaylar</a>
   </div>

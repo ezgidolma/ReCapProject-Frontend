@@ -13,7 +13,9 @@ import { CustomerComponent } from './components/customer/customer.component';
 import { NaviComponent } from './components/navi/navi.component';
 import { RentalComponent } from './components/rental/rental.component';
 import { FormsModule } from '@angular/forms';
-import { VatAddedPipe } from './pipes/vat-added.pipe';
+import { BrandFilterPipe } from './pipes/brand-filter.pipe';
+import { CarFilterPipe } from './pipes/car-filter.pipe';
+import { ColorFilterPipe } from './pipes/color-filter.pipe';
 
 
 @NgModule({
@@ -25,7 +27,9 @@ import { VatAddedPipe } from './pipes/vat-added.pipe';
     CustomerComponent,
     NaviComponent,
     RentalComponent,
-    VatAddedPipe,
+    BrandFilterPipe,
+    CarFilterPipe,
+    ColorFilterPipe
     
   ],
   imports: [
