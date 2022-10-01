@@ -72,6 +72,12 @@ export class CarComponent implements OnInit {
     else return false; 
   }
   
+  getCarFilter(colorId:number,brandId:number){
+    this.carService.getCarFilter(colorId,brandId).subscribe((response)=>{
+      this.carDetails = response.data;
+    })
+  }
 
+  
   
 }
