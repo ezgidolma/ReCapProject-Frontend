@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Brand } from 'src/app/models/Brand/brand';
 import { Car } from 'src/app/models/Car/car';
 import { CarDetailDto } from 'src/app/models/Car/carDetailDto';
+import { CarImage } from 'src/app/models/Car/carimages';
+import { Color } from 'src/app/models/Color/color';
 import { CarService } from 'src/app/services/carservice/car.service';
 
 @Component({
@@ -12,9 +15,11 @@ import { CarService } from 'src/app/services/carservice/car.service';
 export class CarComponent implements OnInit {
   cars : Car[] = [];
   carDetails: CarDetailDto[] = [];
+  carImage: CarImage[]=[];
+  colors:Color[]=[];
   filterCar:"";
-  brandFilter: any;
-  brands: any;
+  brandFilter:number=0;
+  brands:Brand[]=[];
   filterColor:number=0;
 
   constructor(private carService:CarService,private activatedRoute:ActivatedRoute) { }
@@ -66,6 +71,7 @@ export class CarComponent implements OnInit {
     if(this.filterColor==colorId) return true;
     else return false; 
   }
+  
 
   
 }
