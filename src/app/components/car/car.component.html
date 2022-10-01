@@ -12,7 +12,6 @@
   <div class="col-md-4">
     <H5>MARKA</H5>
       <select [(ngModel)]="brandFilter" class="form-select" aria-label="Default select example">
-      <!-- <option value=0>Select Brand</option> -->
       <option *ngFor="let car of carDetails" [value]="car.carId" [selected]="getSelectedBrand(car.carId)">{{car.brandName}}</option>
       
       </select>
