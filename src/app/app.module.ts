@@ -34,7 +34,8 @@ import { BrandFilterPipe } from './pipes/brand-filter.pipe';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    
    
     ],
   providers: [],

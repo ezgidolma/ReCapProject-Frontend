@@ -2,7 +2,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { Color } from '../models/Color/color';
 
 @Pipe({
-  name: 'colorFilter'
+  name: 'colorPipe'
 })
 export class ColorFilterPipe implements PipeTransform {
 

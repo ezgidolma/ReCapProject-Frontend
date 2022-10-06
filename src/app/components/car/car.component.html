@@ -1,4 +1,5 @@
 
+
 <br>
 <div class="content">
   <form class="d-flex md-auto">
@@ -11,24 +12,25 @@
 <div class="row mb-3">
   <div class="col-md-3">
     <H5>MARKA</H5>
-      <select [(ngModel)]="brandFilter" class="form-select" aria-label="Default select example">
-      <option *ngFor="let car of carDetails" [value]="car.carId" [selected]="getSelectedBrand(car.carId)">{{car.brandName}}</option>
-      
+      <select [(ngModel)]="brandFilter" class="form-select" aria-label="Default select example" >
+      <option *ngFor="let brand of brands" [value]="brand.brandId" [selected]="getSelectedBrand(brand.brandId)">{{brand.name}}</option>
+
       </select>
   </div>
  
   <div class="col-md-3">
     <h5>RENK</h5>
     <select  [(ngModel)]="filterColor" class="form-select" aria-label="Default select example">
-      <option *ngFor="let car of carDetails" [value]="car.carId" [selected]="getSelectedColor(car.carId)">{{car.colorName}}</option>
+      <option *ngFor="let color of colors" [value]="color.colorId" [selected]="getSelectedColor(color.colorId)">{{color.name}}</option>
     </select>
     <br>
   </div>
 
 
-  <div class="col-md-6">
+  <div class="col-md-3">
     <br>
-  <button routerLink="/cars/color/{{filterColor}}/brand/{{brandFilter}}" class="btn btn-primary" type="button"  >Filtrele</button>
+    <button routerLink="/cars/color/{{filterColor}}/brand/{{brandFilter}}" class="btn btn-primary" type="button"  >Filter</button>
+    </div>
   
   </div>
 
