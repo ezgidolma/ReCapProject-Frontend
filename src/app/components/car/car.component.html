@@ -9,28 +9,28 @@
 
 <br>
 <div class="row mb-3">
-  <div class="col-md-4">
+  <div class="col-md-3">
     <H5>MARKA</H5>
       <select [(ngModel)]="brandFilter" class="form-select" aria-label="Default select example">
       <option *ngFor="let car of carDetails" [value]="car.carId" [selected]="getSelectedBrand(car.carId)">{{car.brandName}}</option>
       
       </select>
   </div>
-  <br>
-  <div class="col-md-4">
+ 
+  <div class="col-md-3">
     <h5>RENK</h5>
     <select  [(ngModel)]="filterColor" class="form-select" aria-label="Default select example">
       <option *ngFor="let car of carDetails" [value]="car.carId" [selected]="getSelectedColor(car.carId)">{{car.colorName}}</option>
     </select>
+    <br>
   </div>
 
 
-  <div class="col-md-3">
+  <div class="col-md-6">
+    <br>
   <button routerLink="/cars/color/{{filterColor}}/brand/{{brandFilter}}" class="btn btn-primary" type="button"  >Filtrele</button>
-
+  
   </div>
-
-
 
 
 <div class="card" style="width: 18rem; float:left; margin-right: 10px;" *ngFor="let carDetail of carDetails">
