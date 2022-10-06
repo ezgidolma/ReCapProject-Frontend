@@ -11,8 +11,7 @@ import { BrandService } from 'src/app/services/brandservice/brand.service';
 export class BrandComponent implements OnInit {
   
   brands:Brand[]=[];
-  currentBrand :Brand | undefined;
-  dataLoaded=false;
+  currentBrand :Brand | null;
   constructor(private brandService:BrandService) { }
 
   ngOnInit(): void {
@@ -46,6 +45,10 @@ export class BrandComponent implements OnInit {
     else{
       return "list-group-item"
     }
+  }
+  reset(){
+    this.currentBrand = null;
+
   }
 
   

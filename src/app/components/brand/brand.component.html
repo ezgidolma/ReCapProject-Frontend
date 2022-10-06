@@ -3,13 +3,8 @@
     <li class="list-group-item text-center text-white bg-dark" 
     [class]="getAllBrandClass()" 
     routerLink = "/cars">MARKALAR</li>
-
-    <li class="list-group-item bg-light" 
-     (click) = "setCurrentBrand(brand)"
-    routerLink = "/cars/brand/{{brand.brandId}}"      
-    *ngFor = "let brand of brands"
-    [class] = "getCurrentBrandClass(brand)"
-    class="form-check-label">
-      {{brand.name}}
-    </li>
+    <li (click)="setCurrentBrand(brand)"
+     *ngFor="let brand of brands"
+    routerLink="/cars/brand/{{brand.brandId}}" 
+    [class]="getCurrentBrandClass(brand)">{{brand.name}}</li>
   </ul>

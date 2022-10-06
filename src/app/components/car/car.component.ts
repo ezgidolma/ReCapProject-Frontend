@@ -38,12 +38,13 @@ export class CarComponent implements OnInit {
        if(params["brandId"] && params["brandId"]){
         this.getCarsDetailByBrandAndColorId(params["colorId"],params["brandId"])
              }
+        else if(params["brandId"]){
+        this.getCarsByBrand(params["brandId"])
+       }
        else if(params["colorId"]){
         this.getCarsByColor(params["colorId"])
        }
-       else if(params["brandId"]){
-        this.getCarsByBrand(params["brandId"])
-       }
+      
        else{
           this.getCarDetails()
        }

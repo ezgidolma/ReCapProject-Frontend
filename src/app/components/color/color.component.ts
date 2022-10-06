@@ -23,7 +23,6 @@ export class ColorComponent implements OnInit {
   getColor(){
     this.colorService.getColors().subscribe(response =>{
       this.colors=response.data
-      this.dataLoaded=true;
     })
   }
 
