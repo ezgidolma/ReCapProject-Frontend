@@ -1,6 +1,10 @@
+import { DatePipe } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { CarDetailDto } from 'src/app/models/Car/carDetailDto';
 import { Rental } from 'src/app/models/Rental/rental';
+import { RentalDetails } from 'src/app/models/Rental/rentaldetails';
 import { RentalService } from 'src/app/services/rentalservice/rental.service';
 
 @Component({
@@ -10,17 +14,29 @@ import { RentalService } from 'src/app/services/rentalservice/rental.service';
 })
 export class RentalComponent implements OnInit {
 
-  rentals:Rental[]=[];
-  dataLoaded=false;
-  constructor(private  rentalService:RentalService) { }
+  rentalDetails:RentalDetails[] = [];
+  rentDate:Date;
+  returnDate:Date;
+
+  rentals:Rental;
+  message:string|null;
+  minDate:string|null
+  maxDate:string|null
+  
+  car:CarDetailDto;
+
+  firstDateSelected:boolean= false; // rentDate seçili değilse, returnDate aktif olmayacak.
+  state:number = 1;
+  customerId:number
+
+  @Input() carforRent:CarDetailDto
+
+  constructor(private  rentalService:RentalService,
+    private datePipe: DatePipe,
+    private router: Router) { }
 
   ngOnInit(): void {
-    this.getRental();
+    
   }
-  getRental(){
-    this.rentalService.getRentals().subscribe(response =>{
-      this.rentals=response.data
-      this.dataLoaded=true;
-    })
-  }
+  
 }
