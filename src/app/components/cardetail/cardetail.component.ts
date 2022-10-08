@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CarDetailDto } from 'src/app/models/Car/carDetailDto';
 import { CarImage } from 'src/app/models/Car/carimages';
-import { CarImageService } from 'src/app/services/carimage.service';
+import { CarImageService } from 'src/app/services/carservice/carimage.service';
 import { CarService } from 'src/app/services/carservice/car.service';
 
 @Component({
