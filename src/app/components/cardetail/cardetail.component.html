@@ -1,0 +1,36 @@
+
+  
+  
+    <div *ngFor="let car of cars" class="card-body">
+      <div class="card-body detailsFontInfo">
+        <h5 class="card-title">{{ car?.carName }} || {{ car?.brandName }}</h5>
+      </div>
+  
+      <ul class="list-group list-group-flush detailsFontInfo">
+        <li class="list-group-item"><b>Color :</b> {{ car?.colorName }}</li>
+  
+        <li class="list-group-item detailsFontInfo">
+          <b>Model Year :</b> {{ car?.modelYear }}
+        </li>
+  
+        <li class="list-group-item detailsFontInfo">
+          <b>Daily Price :</b>
+          {{ car?.dailyPrice | currency: "USD":true:"1.2-2" }}
+        </li>
+  
+        <li class="list-group-item detailsFontInfo">
+          <b>Description:</b> {{ car?.carName }}
+        </li>
+       
+      </ul>
+    </div>
+  
+    <div style="margin-bottom: 4%">
+      <div class="row">
+        <div class="btn-goback col-md-2 offset-md-8">
+          <button style="width: 100%" type="button" class="btn btn-outline-dark">
+            Back
+          </button>
+        </div>
+  
+       

@@ -4,6 +4,7 @@ import { CarDetailDto } from 'src/app/models/Car/carDetailDto';
 import { CarImage } from 'src/app/models/Car/carimages';
 import { CarImageService } from 'src/app/services/carservice/carimage.service';
 import { CarService } from 'src/app/services/carservice/car.service';
+import { Car } from 'src/app/models/Car/car';
 
 @Component({
   selector: 'app-cardetail',
@@ -11,11 +12,11 @@ import { CarService } from 'src/app/services/carservice/car.service';
   styleUrls: ['./cardetail.component.css']
 })
 export class CardetailComponent implements OnInit {
-
+  cars:CarDetailDto[]=[];
   carImagePaths:string[] = [];
   carDetail: CarDetailDto;
   dataLoaded = false;
-  imageUrl:string="https://localhost:44396/Uploads/images/"
+  imageUrl:string="https://localhost:7266/Uploads/images/"
   carImages:CarImage[]=[];
 
   constructor(private carService:CarService,
@@ -31,8 +32,10 @@ export class CardetailComponent implements OnInit {
         }
     })
   }
-  getCarsDetailsByCarId(arg0: any) {
-    throw new Error('Method not implemented.');
+  getCarsDetailsByCarId(carId: number) {
+    this.carService.getCarById(carId).subscribe((response)=>{
+
+    })
   }
 
 
