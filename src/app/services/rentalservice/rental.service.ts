@@ -19,14 +19,14 @@ export class RentalService {
     return this.httpclient.get<ListResponseModel<RentalDetails>>(newPath);
   }
 
-  getRentalCars(): Observable<ListResponseModel<RentalDetails>> {
+  getRentals(): Observable<ListResponseModel<RentalDetails>> {
     let newPath = this.apiUrl + 'getall';
     return this.httpclient.get<ListResponseModel<RentalDetails>>(newPath);
   }
 
 
-addRental(rental:Rental): Observable<ResponseModel> {
-  let newPath = this.apiUrl + 'add'
-  return this.httpclient.post<ResponseModel>(newPath, rental);
-}
+  addRental(rental:Rental): Observable<ResponseModel> {
+    let newPath = this.apiUrl + 'add'
+    return this.httpclient.post<ResponseModel>(newPath, rental);
+  }
 }

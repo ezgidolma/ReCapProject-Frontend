@@ -5,6 +5,7 @@ import { CarImage } from 'src/app/models/Car/carimages';
 import { CarImageService } from 'src/app/services/carservice/carimage.service';
 import { CarService } from 'src/app/services/carservice/car.service';
 import { Car } from 'src/app/models/Car/car';
+import { RentalService } from 'src/app/services/rentalservice/rental.service';
 
 @Component({
   selector: 'app-cardetail',
@@ -15,13 +16,13 @@ export class CardetailComponent implements OnInit {
   cars:CarDetailDto[]=[];
   carImagePaths:string[] = [];
   carDetail: CarDetailDto;
-  dataLoaded = false;
   imageUrl:string="https://localhost:7266/Uploads/images/"
   carImages:CarImage[]=[];
 
   constructor(private carService:CarService,
     private activatedRoute:ActivatedRoute,
-    private carImageService:CarImageService) { }
+    private carImageService:CarImageService,
+    public rentalService:RentalService) { }
 
   ngOnInit(): void {
 
@@ -34,7 +35,6 @@ export class CardetailComponent implements OnInit {
   }
   getCarsDetailsByCarId(carId: number) {
     this.carService.getCarById(carId).subscribe((response)=>{
-
     })
   }
 

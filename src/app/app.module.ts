@@ -16,6 +16,7 @@ import { FormsModule } from '@angular/forms';
 import { ColorFilterPipe } from './pipes/color-filter.pipe';
 import { BrandFilterPipe } from './pipes/brand-filter.pipe';
 import { CardetailComponent } from './components/cardetail/cardetail.component';
+import { PaymentComponent } from './components/payment/payment.component';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { CardetailComponent } from './components/cardetail/cardetail.component';
     ColorFilterPipe,
     BrandFilterPipe,
     CardetailComponent,
+    PaymentComponent,
    
   ],
   imports: [

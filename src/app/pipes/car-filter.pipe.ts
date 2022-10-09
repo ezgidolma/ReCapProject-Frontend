@@ -12,9 +12,9 @@ export class CarFilterPipe implements PipeTransform {
 
     return filterCar ? value.filter((c: CarDetailDto) => 
     c.brandName.toLocaleLowerCase().indexOf(filterCar) !== -1 ||
+    c.modelName.toLocaleLowerCase().indexOf(filterCar) !== -1 ||
     c.colorName.toLocaleLowerCase().indexOf(filterCar) !== -1 ||
-    c.carName.toLocaleLowerCase().indexOf(filterCar) !== -1 ||
-    c.carId.toString().indexOf(filterCar) !== -1 ||
+    c.description.toString().indexOf(filterCar) !== -1 ||
     c.dailyPrice.toString().indexOf(filterCar) !== -1 ) : value;
 }
 }

@@ -45,6 +45,5 @@ export class RentalComponent implements OnInit {
   }
   
   getCustomerDetails() {
-    CustomerService
   }
 }
